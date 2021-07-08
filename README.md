@@ -38,7 +38,7 @@ Map color themes can be changed in `MapViewCEP/client/mapStyles.js`. There are f
 
 ## Screenshots
 
-<img src="https://github.com/stuomas/BridgeMapView/blob/master/screenshot.jpg">
+<img src="https://github.com/stuomas/bridge-map-view/blob/main/screenshot.jpg?raw=true" width=400>
 
 ## Development
 
