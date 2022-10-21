@@ -144,8 +144,7 @@ function initMap() {
                 "\n" +
                 lngToDDM(suggestedLng),
             icon: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
-            draggable: false,
-            animation: google.maps.Animation.DROP,
+            draggable: false
         });
         locationToBeSavedMarker.push(m);
     });
@@ -278,8 +277,7 @@ function showSelectionOnMap() {
                 map,
                 title: "Selected photo location",
                 icon: "http://maps.google.com/mapfiles/kml/pal4/icon38.png",
-                draggable: false,
-                animation: google.maps.Animation.DROP,
+                draggable: false
             });
             selectedPhotoMarkers.push(m);
         } else {
