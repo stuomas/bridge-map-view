@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>MapView</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,600' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <input
-      id="pac-input"
-      class="controls"
-      type="text"
-      placeholder="Search for a location..."
-    />
-
-    <div id="map">
-      <div id="init-info">
-        <div>
-          <h2>Set API key</h2>
-          You need a personal Google Cloud API key to use the extension. Enter it here and it will be saved locally and not asked again.
-        </div>
-        <div>
-          <form action="">
-            <div class="embed-submit-field">
-              <input id="key-input" type="text" placeholder="Google Cloud API key"/>
-              <button title="Save the key to the extension's userdata folder" onclick="initExtension(document.getElementById('key-input').value)">Go!</button>
+    <head>
+        <meta charset="utf-8" />
+        <title>Map</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link
+            href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,600"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script type="text/javascript" src="CSInterface.js" defer></script>
+        <script type="text/javascript" src="mapStyles.js" defer></script>
+        <script type="text/javascript" src="main.js" defer></script>
+    </head>
+    <body>
+        <input
+            id="pac-input"
+            class="controls"
+            type="text"
+            placeholder="Search for a location..."
+        />
+        <div id="map">
+            <div id="init-info">
+                <div>
+                    <h2>Set API key</h2>
+                    You need a personal Google Cloud API key to use the
+                    extension. Enter it here and it will be saved locally and
+                    not asked again.
+                </div>
+                <div>
+                    <div class="embed-submit-field">
+                        <input
+                            id="key-input"
+                            type="text"
+                            placeholder="Google Cloud API key"
+                        />
+                        <button
+                            title="Save the key to the extension's userdata folder"
+                            onclick="initExtension(document.getElementById('key-input').value)"
+                        >
+                            Go!
+                        </button>
+                    </div>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-
-    <div id="map-controls" class="buttons">
-      <div id="toggle-search" title="Show/hide searchbar">Toggle searchbar</div>
-      <div id="save-location" title="Save marker location to EXIF metadata of all selected images">Save location to EXIF</div>
-    </div>
-
-    <script type="text/javascript" src="mapStyles.js"></script>
-    <script type="text/javascript" src="CSInterface.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    
-  </body>
+        <div id="map-controls" class="buttons">
+            <div id="toggle-search" title="Show/hide searchbar">
+                Toggle searchbar
+            </div>
+            <div
+                id="save-location"
+                title="Save marker location to EXIF metadata of all selected images"
+            >
+                Save location to EXIF
+            </div>
+        </div>
+    </body>
 </html>

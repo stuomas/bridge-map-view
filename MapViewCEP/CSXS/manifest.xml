@@ -26,7 +26,7 @@
         </Lifecycle>
         <UI>
           <Type>Embedded</Type>
-          <Menu>MapView</Menu>
+          <Menu>Map</Menu>
           <Geometry>
             <Size>
               <Height>500</Height>
@@ -36,6 +36,5 @@
         </UI>
       </DispatchInfo>
     </Extension>
-
   </DispatchInfoList>
 </ExtensionManifest>
