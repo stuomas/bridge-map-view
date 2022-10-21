@@ -17,6 +17,7 @@ You need to generate your personal Google Cloud API key to use the extension. Yo
 
 1. Clone the repository or download as a zip
 2. Copy the `MapViewCEP` to any of the [extension folders](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#extension-folders)
+   - It has been reported that only the per-user folders work, so I suggest trying that first. E.g. for Windows `C:\Users\<USERNAME>\AppData\Roaming\Adobe\CEP\extensions`
 3. Copy the `nativeEventForwarder.jsx` script to the Startup Scripts folder of Bridge. You can find the path from Edit → Preferences → Startup Scripts → Reveal My Startup Scripts
 4. (Re)start Bridge
 5. Open extension from Window → Extensions → MapView
