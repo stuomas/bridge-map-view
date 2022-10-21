@@ -4,10 +4,10 @@ A Google Maps based extension for Adobe Bridge for geotagging photos and showing
 
 ## Prerequisites
 
-You need to generate your personal Google Cloud API key to use the extension. You need to set billing information etc., but worry not, the Google Maps Platform gives generous monthly [free quota](https://developers.google.com/maps/billing-credits), so you will practically never have to pay real money to use this extension, if you don't share your API key with others. (small print: nevertheless l take no responsibility if you somehow manage to exceed your free quota. Set a usage limit if worried).
+You need to generate your personal Google Cloud API key to use the extension. You need to set billing information etc., but worry not, the Google Maps Platform gives generous monthly [free quota](https://developers.google.com/maps/billing-and-pricing/billing#monthly-credit), so you will practically never have to pay real money to use this extension, if you don't share your API key with others. (small print: nevertheless l take no responsibility if you somehow manage to exceed your free quota. Set a usage limit if worried).
 
 1. [Create a Google Cloud project](https://developers.google.com/maps/documentation/javascript/cloud-setup)
-   - [Enable](https://developers.google.com/maps/documentation/javascript/cloud-setup#enabling_apis) `Maps JavaScript API` and `Places API` for the project
+   - [Enable](https://developers.google.com/maps/documentation/javascript/cloud-setup#enabling-apis) `Maps JavaScript API` and `Places API` for the project
 2. [Generate an API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
    - Copy the generated key
 
