@@ -1,6 +1,6 @@
-# Bridge 2021 MapView
+# Adobe Bridge MapView
 
-A Google Maps based extension for Adobe Bridge 2021 for geotagging photos and showing their location on an interactive map.
+A Google Maps based extension for Adobe Bridge for geotagging photos and showing their location on an interactive map.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Map color themes can be changed in `MapViewCEP/client/mapStyles.js`. There are f
 
 ## Development
 
-Tested only on Bridge 2021 for Windows. If you have bugs to report or features to request, please do! Pull requests are also welcome.
+Tested only on Bridge 2021/2022/2023 for Windows. If you have bugs to report or features to request, please do! Pull requests are also welcome.
 
 - - - -
 
