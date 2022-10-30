@@ -65,11 +65,7 @@ input:focus {
 }
 
 #map {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+    height: 100%;
 }
 
 #description {
@@ -88,6 +84,114 @@ input:focus {
 #map #infowindow-content {
     display: inline;
 }
+
+#save-location {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 20px #0000004b;
+    border-radius: 10px;
+    color: #000;
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 70px);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 140px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+#save-location:active {
+    font-weight: bold;
+}
+
+#save-location:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+}
+
+.pac-card {
+    background: transparent;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: none;
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    font-family: Roboto;
+    padding: 0;
+}
+
+.pac-item {
+    background: #efefefbb;
+    border: none;
+}
+
+.pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    font-family: Roboto;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 20px #0000004b;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+}
+
+#pac-input:hover,
+#pac-input:active,
+#pac-input:focus {
+    width: 95%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+#pac-input::placeholder {
+    text-align: center;
+}
+
+#pac-input:focus::placeholder {
+    color: transparent;
+    text-align: left;
+}
+
+#pac-input:hover::placeholder {
+    text-align: left;
+}
+
+/*
 
 .pac-card {
     margin: 10px 10px 0 0;
@@ -145,51 +249,4 @@ input:focus {
     font-size: 12px;
 }
 
-.buttons {
-    background-color: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    bottom: 30px;
-    left: calc(50% - 140px);
-    height: 30px;
-    width: 280px;
-    box-shadow: 0px 0px 20px #0000004b;
-    border-radius: 6px;
-}
-
-#toggle-search,
-#save-location {
-    color: #000;
-    position: absolute;
-    user-select: none;
-    cursor: pointer;
-    text-align: center;
-    width: 140px;
-    height: 30px;
-    font-size: 12px;
-    line-height: 30px;
-    overflow: hidden;
-}
-
-#save-location,
-#set-key {
-    right: 0;
-    border-left: 1px solid #ccc;
-    border-radius: 0 5px 5px 0;
-}
-
-#toggle-search,
-#reset {
-    left: 0;
-    border-radius: 5px 0 0 5px;
-}
-
-#toggle-search:active,
-#save-location:active {
-    font-weight: bold;
-}
-
-#toggle-search:hover,
-#save-location:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #fff;
-}
+*/

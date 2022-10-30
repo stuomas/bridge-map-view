@@ -18,7 +18,8 @@
             id="pac-input"
             class="controls"
             type="text"
-            placeholder="Search for a location..."
+            placeholder="🔎︎"
+            onfocusout="this.value=''"
         />
         <div id="map">
             <div id="init-info">
@@ -45,16 +46,12 @@
                 </div>
             </div>
         </div>
-        <div id="map-controls" class="buttons">
-            <div id="toggle-search" title="Show/hide searchbar">
-                Toggle searchbar
-            </div>
-            <div
-                id="save-location"
-                title="Save marker location to EXIF metadata of all selected images"
-            >
-                Save location to EXIF
-            </div>
+        <div
+            id="save-location"
+            class="buttons"
+            title="Save marker location to EXIF metadata of all selected images"
+        >
+            Save location to EXIF
         </div>
     </body>
 </html>

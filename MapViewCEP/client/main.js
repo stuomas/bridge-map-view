@@ -78,6 +78,7 @@ function initExtension(input) {
     } else {
         showInfoScreen();
     }
+    hideSaveButton();
 }
 
 // Google Maps callback on authentication failure, e.g. bad API key
@@ -93,7 +94,10 @@ function initMap() {
         center: { lat: 33, lng: -38 },
         fullscreenControl: false,
         streetViewControl: false,
-        mapTypeControl: false,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
         zoomControl: false,
         controlSize: 22,
         draggableCursor: "crosshair",
@@ -117,7 +121,6 @@ function initMap() {
         const bounds = new google.maps.LatLngBounds();
         places.forEach((place) => {
             if (!place.geometry || !place.geometry.location) {
-                console.log("Returned place contains no geometry");
                 return;
             }
             if (place.geometry.viewport) {
@@ -129,12 +132,27 @@ function initMap() {
         map.fitBounds(bounds);
     });
 
+    // Clear marker when rightclicking anywhere on map
+    map.addListener("rightclick", (mapsMouseEvent) => { 
+        clearLocationToBeSavedMarker();
+    });
+
     // Register click event handler for map
     map.addListener("click", (mapsMouseEvent) => {
         clearLocationToBeSavedMarker();
         suggestedLat = parseFloat(mapsMouseEvent.latLng.lat().toFixed(6));
         suggestedLng = parseFloat(mapsMouseEvent.latLng.lng().toFixed(6));
-        // Create a new marker.
+        // Create a new marker
+        const svgMarker = {
+            path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+            fillColor: "blue",
+            fillOpacity: 0.6,
+            strokeWeight: 0,
+            rotation: 0,
+            scale: 2,
+            anchor: new google.maps.Point(12, 23),
+          };
+
         let m = new google.maps.Marker({
             position: { lat: suggestedLat, lng: suggestedLng },
             map,
@@ -143,23 +161,29 @@ function initMap() {
                 latToDDM(suggestedLat) +
                 "\n" +
                 lngToDDM(suggestedLng),
-            icon: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
-            draggable: false
+            icon: svgMarker,
+            draggable: true
         });
+
         locationToBeSavedMarker.push(m);
+        showSaveButton();
     });
 }
 
 function showInfoScreen() {
-    document.getElementById("pac-input").style.display = "none";
-    document.getElementById("map-controls").style.display = "none";
     document.getElementById("init-info").style.display = "flex";
 }
 
 function hideInfoScreen() {
-    document.getElementById("pac-input").style.display = "none";
-    document.getElementById("map-controls").style.display = "block";
     document.getElementById("init-info").style.display = "none";
+}
+
+function hideSaveButton() {
+    document.getElementById("save-location").style.display = "none";
+}
+
+function showSaveButton() {
+    document.getElementById("save-location").style.display = "block";
 }
 
 // Change map color theme
@@ -172,6 +196,7 @@ function clearLocationToBeSavedMarker() {
     for (let i = 0; i < locationToBeSavedMarker.length; i++) {
         locationToBeSavedMarker[i].setMap(null);
     }
+    hideSaveButton();
 }
 
 // Removes the locationToBeSavedMarker from the map, but keeps them in the array.
@@ -231,6 +256,14 @@ function readThemeFromFile() {
     }
 }
 
+function saveOptionsToFile(input) {
+    // map type etc
+}
+
+function readOptionsFromFile() {
+
+}
+
 function writeGPStoEXIF() {
     if (!numberOfSelectedItems) {
         alert("No images selected!");
@@ -266,6 +299,7 @@ function writeGPStoEXIF() {
 
 function showSelectionOnMap() {
     csInterface.evalScript("getSelectedImageDD()", function (res) {
+        clearLocationToBeSavedMarker();
         if (res) {
             let locArr = res.split(","); // JSX side passes array to JS as a string???
             let lat = parseFloat(locArr[0]);
@@ -276,7 +310,7 @@ function showSelectionOnMap() {
                 position: { lat: lat, lng: lng },
                 map,
                 title: "Selected photo location",
-                icon: "http://maps.google.com/mapfiles/kml/pal4/icon38.png",
+                icon: "http://maps.google.com/mapfiles/kml/pal4/icon46.png",
                 draggable: false
             });
             selectedPhotoMarkers.push(m);
@@ -297,6 +331,7 @@ function saveLocationControl() {
 
 // Map button for toggling search bar
 function searchToggleControl() {
+    /*
     const input = document.getElementById("pac-input");
     const controlUI = document.getElementById("toggle-search");
     controlUI.addEventListener("click", () => {
@@ -306,6 +341,7 @@ function searchToggleControl() {
             input.style.display = "none";
         }
     });
+    */
 }
 
 /*
